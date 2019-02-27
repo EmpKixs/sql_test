@@ -17,10 +17,11 @@ public class SqlTestApplicationTests {
     @Test
     public void contextLoads() {
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 99; i++) {
+        for (int i = 0; i < 500; i++) {
+            System.out.println("第" + (i + 1) + "轮");
             userService.batchInsert(10000);
         }
-        System.out.println(System.currentTimeMillis() - start);
+        System.out.println("添加结束，耗时：" + (System.currentTimeMillis() - start));
     }
 
 }

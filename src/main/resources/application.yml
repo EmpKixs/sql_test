@@ -1,7 +1,11 @@
 server:
   port: 8080
 spring:
-  # 使用druid数据源
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0
   datasource:
     name: dataSource
     url: jdbc:mysql://localhost:3306/sql_demo?useUnicode=true&zeroDateTimeBehavior=convertToNull&useServerPrepStmts=false&characterEncoding=utf8
@@ -29,8 +33,6 @@ spring:
     hikari:
       connection-init-sql: set names utf8mb4;
 
-# MyBatis配置
-# mybatis.config-location=classpath:mybatis-config.xml
 mybatis:
   mapper-locations: classpath*:sqlmap/*.xml
   type-aliases-package: com.kixs.sql.domain.*

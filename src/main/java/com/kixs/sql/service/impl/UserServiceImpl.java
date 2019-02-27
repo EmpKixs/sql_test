@@ -3,7 +3,9 @@ package com.kixs.sql.service.impl;
 import com.kixs.sql.dao.UserDao;
 import com.kixs.sql.module.User;
 import com.kixs.sql.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -21,10 +23,18 @@ public class UserServiceImpl implements UserService {
     public static final String ALLCHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String NUMBERCHAR = "0123456789";
 
+    public static final String NICK_NAME_KEY = "nick_name_set";
+    public static final String PHONE_KEY = "phone_set";
+    public static final String NUMBER_KEY = "number";
+
     private static final Byte MALE = (byte) 1;
     private static final Byte FEMALE = (byte) 2;
+
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
 
     @Override
     public void batchInsert(int count) {
@@ -33,7 +43,7 @@ public class UserServiceImpl implements UserService {
         List<User> users = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             User user = new User();
-            user.setNickName(getRandomNickName(random, random.nextInt(32)));
+            user.setNickName(getRandomNickName(random, random.nextInt(32) + 1));
             user.setPhone(getRandomPhone(random, "183"));
             user.setGender(getRandomGender(random));
             user.setLatestLoginTime(LocalDateTime.now());
