@@ -6,5 +6,9 @@ package com.kixs.sql.service;
  */
 public interface UserService {
 
-    void batchInsert(int count);
+    void batchInsert1(int count);
+    void batchInsert2(int count);
+    void batchInsert3(int count);
+    void batchInsert4(int count);
+    void batchInsert5(int count);
 }

@@ -37,20 +37,108 @@ public class UserServiceImpl implements UserService {
     private RedisTemplate<String, String> redisTemplate;
 
     @Override
-    public void batchInsert(int count) {
+    public void batchInsert1(int count) {
         LocalDateTime create = LocalDateTime.now();
         Random random = new Random();
         List<User> users = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             User user = new User();
-            user.setNickName(getRandomNickName(random, random.nextInt(32) + 1));
+            int length = random.nextInt(32) + 5;
+            if (length > 32) {
+                length = 32;
+            }
+            user.setNickName(getRandomNickName(random, length));
             user.setPhone(getRandomPhone(random, "183"));
             user.setGender(getRandomGender(random));
             user.setLatestLoginTime(LocalDateTime.now());
             user.setCreateDateTime(create);
             users.add(user);
         }
-        userDao.insertBatch(users);
+        userDao.insertBatch1(users);
+    }
+
+    @Override
+    public void batchInsert2(int count) {
+        LocalDateTime create = LocalDateTime.now();
+        Random random = new Random();
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            User user = new User();
+            int length = random.nextInt(32) + 5;
+            if (length > 32) {
+                length = 32;
+            }
+            user.setNickName(getRandomNickName(random, length));
+            user.setPhone(getRandomPhone(random, "183"));
+            user.setGender(getRandomGender(random));
+            user.setLatestLoginTime(LocalDateTime.now());
+            user.setCreateDateTime(create);
+            users.add(user);
+        }
+        userDao.insertBatch2(users);
+    }
+
+    @Override
+    public void batchInsert3(int count) {
+        LocalDateTime create = LocalDateTime.now();
+        Random random = new Random();
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            User user = new User();
+            int length = random.nextInt(32) + 5;
+            if (length > 32) {
+                length = 32;
+            }
+            user.setNickName(getRandomNickName(random, length));
+            user.setPhone(getRandomPhone(random, "183"));
+            user.setGender(getRandomGender(random));
+            user.setLatestLoginTime(LocalDateTime.now());
+            user.setCreateDateTime(create);
+            users.add(user);
+        }
+        userDao.insertBatch3(users);
+    }
+
+    @Override
+    public void batchInsert4(int count) {
+        LocalDateTime create = LocalDateTime.now();
+        Random random = new Random();
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            User user = new User();
+            int length = random.nextInt(32) + 5;
+            if (length > 32) {
+                length = 32;
+            }
+            user.setNickName(getRandomNickName(random, length));
+            user.setPhone(getRandomPhone(random, "183"));
+            user.setGender(getRandomGender(random));
+            user.setLatestLoginTime(LocalDateTime.now());
+            user.setCreateDateTime(create);
+            users.add(user);
+        }
+        userDao.insertBatch4(users);
+    }
+
+    @Override
+    public void batchInsert5(int count) {
+        LocalDateTime create = LocalDateTime.now();
+        Random random = new Random();
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            User user = new User();
+            int length = random.nextInt(32) + 5;
+            if (length > 32) {
+                length = 32;
+            }
+            user.setNickName(getRandomNickName(random, length));
+            user.setPhone(getRandomPhone(random, "183"));
+            user.setGender(getRandomGender(random));
+            user.setLatestLoginTime(LocalDateTime.now());
+            user.setCreateDateTime(create);
+            users.add(user);
+        }
+        userDao.insertBatch5(users);
     }
 
     private String getRandomNickName(Random random, int length) {

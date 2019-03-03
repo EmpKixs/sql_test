@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kixs.sql.dao.UserDao">
 
-    <insert id="insertBatch" parameterType="com.kixs.sql.module.User">
+    <insert id="insertBatch1" parameterType="com.kixs.sql.module.User">
         INSERT INTO user1 (
             `nick_name`,
             `phone`,
@@ -19,6 +19,82 @@
                 #{item.gender},
                 #{item.latestLoginTime},
                 #{item.createDateTime}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertBatch2" parameterType="com.kixs.sql.module.User">
+        INSERT INTO user2 (
+        `nick_name`,
+        `phone`,
+        `gender`,
+        `latest_login_time`,
+        `create_date_time`
+        ) VALUES
+        <foreach collection="users" index="index" item="item" open="" separator="," close="">
+            (
+            #{item.nickName},
+            #{item.phone},
+            #{item.gender},
+            #{item.latestLoginTime},
+            #{item.createDateTime}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertBatch3" parameterType="com.kixs.sql.module.User">
+        INSERT INTO user3 (
+        `nick_name`,
+        `phone`,
+        `gender`,
+        `latest_login_time`,
+        `create_date_time`
+        ) VALUES
+        <foreach collection="users" index="index" item="item" open="" separator="," close="">
+            (
+            #{item.nickName},
+            #{item.phone},
+            #{item.gender},
+            #{item.latestLoginTime},
+            #{item.createDateTime}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertBatch4" parameterType="com.kixs.sql.module.User">
+        INSERT INTO user4 (
+        `nick_name`,
+        `phone`,
+        `gender`,
+        `latest_login_time`,
+        `create_date_time`
+        ) VALUES
+        <foreach collection="users" index="index" item="item" open="" separator="," close="">
+            (
+            #{item.nickName},
+            #{item.phone},
+            #{item.gender},
+            #{item.latestLoginTime},
+            #{item.createDateTime}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertBatch5" parameterType="com.kixs.sql.module.User">
+        INSERT INTO user5 (
+        `nick_name`,
+        `phone`,
+        `gender`,
+        `latest_login_time`,
+        `create_date_time`
+        ) VALUES
+        <foreach collection="users" index="index" item="item" open="" separator="," close="">
+            (
+            #{item.nickName},
+            #{item.phone},
+            #{item.gender},
+            #{item.latestLoginTime},
+            #{item.createDateTime}
             )
         </foreach>
     </insert>

@@ -20,3 +20,8 @@ DELETE FROM `user1` WHERE nick_name IN (SELECT t.nick_name AS nick_name_num FROM
 DELETE FROM `user1` WHERE phone IN (SELECT t.phone FROM (SELECT phone, COUNT(*) AS num FROM `user1` GROUP BY phone) t WHERE t.num > 1);
 
 SELECT COUNT(*) FROM `user1`;
+
+ALTER TABLE `user1`
+ADD INDEX `idx_nick_name` (`nick_name`) USING BTREE ,
+ADD INDEX `idx_phone` (`phone`) USING BTREE ;
+
